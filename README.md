@@ -196,7 +196,23 @@ npm unlink -g ekey-cli //删除当前link全局的包
 > lerna是架构优化的产物，他揭示了一个架构真理：项目复杂度提升后，就需要对项目进行架构优化，优化的主要目标往往都是以效能为核心
 
 ### 脚手架流程
-![alt text](image.png)
+![alt text](./assets/image.png)
+
+### lerna注意事项
+- npm包组
+在多包的时候我们通常会采用@ekey-cli/core @ekey-cli/utils等等名称，这个时候要发包的时候一定要注意要去npm上面增加organization名称叫做ekey-cli才能够发包成功
+- 命令的变化
+lerna自从v7版本之后很多命令都被移除了，lerna add,lerna bratstrop，官方建议直接使用npm和pnpm进行包管理
+在这里我选择使用pnpm进行workspace设置
+  - 添加npm-workspace.yaml进行多包的设置
+  - 将package.json中的workspaces的配置
+  - `pnpm -r add lodash`对所有的包安装lodash依赖
+  - `npm -r -F @ekey-cli/core add dayjs`对单个包进行依赖安装
+  - `pnpm add -g rimraf` `pnpm -r exec rimraf node_modules`删除包里面所有的依赖
+- 命令解析
+ - lerna link被删除
+可以通过`pnpm -r add @ekey-cli/tuils -F @ekey-cli/core`在这里如果`@ekey-cli/utils`没有进行过发包操作还需要在core项目下指定下包`"@ekey-cli/utils": "workspace:*"`
+
 
 
 

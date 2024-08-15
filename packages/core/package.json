@@ -1,0 +1,34 @@
+{
+  "name": "@ekey-cli/core",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "bobowiki <15270421125@163.com>",
+  "homepage": "https://github.com/bobowiki/ekey-cli#readme",
+  "license": "ISC",
+  "main": "lib/core.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmmirror.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bobowiki/ekey-cli.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/@ekey-cli/core.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/bobowiki/ekey-cli/issues"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.12",
+    "lodash": "^4.17.21",
+    "@ekey-cli/utils": "workspace:*"
+  }
+}
